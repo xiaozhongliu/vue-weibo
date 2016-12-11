@@ -1,0 +1,25 @@
+{
+  "name": "weibo-vue",
+  "homepage": "https://github.com/XiaozhongLiu/weibo-vue#readme",
+  "description": "pratice vue",
+  "version": "0.0.1",
+  "license": "ISC",
+  "main": "app.js",
+  "author": "xiaozhong",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/XiaozhongLiu/weibo-vue.git"
+  },
+  "bugs": {
+    "url": "https://github.com/XiaozhongLiu/weibo-vue/issues"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "compression": "^1.6.2",
+    "connect-redis": "^3.1.0",
+    "cookie-parser": "^1.4.3",
+    "ejs-mate": "^2.3.0",
+    "express": "^4.14.0",
+    "express-session": "^1.14.2"
+  }
+}
