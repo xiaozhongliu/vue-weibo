@@ -1,5 +1,5 @@
-var express = require('express');
-var router = express.Router();
+let express = require('express');
+let router = express.Router();
 
 router.get('/', function (req, res, next) {
 
@@ -7,7 +7,7 @@ router.get('/', function (req, res, next) {
     //     return next(err);
     // }
 
-    res.send('maybe an API result');
+    res.send('api result');
 });
 
 module.exports = router;

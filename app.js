@@ -1,16 +1,17 @@
-var express = require('express');
-var ejs = require('ejs-mate');
-var compress = require('compression');
-var bodyParser = require('body-parser');
-var cookieParser = require('cookie-parser');
-var session = require('express-session');
-var RedisStore = require('connect-redis')(session);
+let express = require('express');
+let ejs = require('ejs-mate');
+let compress = require('compression');
+let bodyParser = require('body-parser');
+let cookieParser = require('cookie-parser');
+let session = require('express-session');
+let RedisStore = require('connect-redis')(session);
 
-var index = require('./route/index');
-var others = require('./route/others');
-var config = require('./config');
+let oauth = require('./midware/oauth');
+let index = require('./route/index');
+let others = require('./route/others');
+let config = require('./config');
 
-var app = express();
+let app = express();
 
 app.set('views', './dist/view');
 app.set('view engine', 'html');
@@ -33,11 +34,13 @@ app.use(session({
     saveUninitialized: true
 }));
 
+app.use(oauth.auth);
+app.use(oauth.weiboOAuth);
 app.use('/', index);
 app.use('/others', others);
 
 app.use(function (req, res, next) {
-    var err = new Error();
+    let err = new Error();
     err.message = 'Not Found: ' + req.url;
     err.status = 404;
     next(err);
