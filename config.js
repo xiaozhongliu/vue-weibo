@@ -1,5 +1,4 @@
 module.exports = {
-
     // is debug mode
     DEBUG: true,
 
@@ -15,6 +14,7 @@ module.exports = {
 
     // common libs needed to move from bower folders
     COMMON_LIBS: [
-        'jquery-mobile/external/jquery/jquery.min.js'
+        'vue/dist/vue.js',
+        'vuex/dist/vuex.js'
     ]
 };

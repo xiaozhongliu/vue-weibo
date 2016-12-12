@@ -10,6 +10,7 @@ let oauth = require('./midware/oauth');
 let index = require('./route/index');
 let others = require('./route/others');
 let config = require('./config');
+let build = require('./build/build');
 
 let app = express();
 
@@ -18,7 +19,7 @@ app.set('view engine', 'html');
 app.engine('html', ejs);
 
 app.use(compress());
-app.use(express.static('./dist'));
+app.use(express.static('./webapp'));
 app.use(bodyParser.urlencoded({extended: true, limit: '1mb'}));
 app.use(bodyParser.json());
 app.use(cookieParser(config.SECRET));
@@ -39,20 +40,21 @@ app.use(oauth.weiboOAuth);
 app.use('/', index);
 app.use('/others', others);
 
-app.use(function (req, res, next) {
+app.use((req, res, next) => {
     let err = new Error();
     err.message = 'Not Found: ' + req.url;
     err.status = 404;
     next(err);
 });
 
-app.use(function (err, req, res) {
+app.use((err, req, res) => {
     res.json({
         code: err.status || 500,
         msg: err.message
     });
 });
 
-app.listen(config.PORT, function () {
-    console.log('Webapp listening at http://localhost:' + config.PORT);
+app.listen(config.PORT, () => {
+    build();
+    console.log(`Webapp starts at http://localhost:${config.PORT}`);
 });

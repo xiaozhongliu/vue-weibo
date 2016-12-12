@@ -1,4 +1,4 @@
-let weibo =require('weibo');
+let weibo = require('weibo');
 
 weibo.init('weibo', 'appkey', 'secret');
 
@@ -9,17 +9,17 @@ module.exports = {
         logoutPath: '/logout',
         callbackPath: '/oauth/callback',
         blogtypeField: 'type',
-        afterLogin: function (req, res, callback) {
+        afterLogin: (req, res, callback) => {
             console.log(req.session.oauthUser && req.session.oauthUser.screen_name, 'login success');
             process.nextTick(callback);
         },
-        beforeLogout: function (req, res, callback) {
+        beforeLogout: (req, res, callback) => {
             console.log(req.session.oauthUser && req.session.oauthUser.screen_name, 'loging out');
             process.nextTick(callback);
         }
     }),
 
-    auth: function (req, res, next) {
+    auth: (req, res, next) => {
         if (!req.session.oauthUser) {
             return res.send(`
                 Login with <a href="/login?type=weibo">Weibo</a> |
