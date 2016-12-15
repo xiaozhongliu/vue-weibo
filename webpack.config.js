@@ -1,7 +1,8 @@
+let webpack = require('webpack');
+
 module.exports = {
     entry: {
-        app: './webapp/app.js',
-        search: './webapp/store/index.js'
+        app: './webapp/app.js'
     },
     output: {
         filename: '[name].js',
@@ -10,18 +11,21 @@ module.exports = {
     module: {
         loaders: [
             {
+                test: /\.vue$/,
+                exclude: /(node_modules|bower_components)/,
+                loader: 'vue-loader'
+            },
+            {
                 test: /\.js$/,
                 exclude: /(node_modules|bower_components)/,
                 loader: 'babel-loader',
                 query: {
                     presets: ['es2015']
                 }
-            },
-            {
-                test: /\.vue$/,
-                exclude: /(node_modules|bower_components)/,
-                loader: 'vue-loader'
             }
         ]
-    }
+    },
+    plugins: [
+        new webpack.optimize.UglifyJsPlugin()
+    ]
 };

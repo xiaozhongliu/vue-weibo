@@ -14,12 +14,12 @@ let build = require('./build/build');
 
 let app = express();
 
-app.set('views', './dist/view');
+app.set('views', './dist');
 app.set('view engine', 'html');
 app.engine('html', ejs);
 
 app.use(compress());
-app.use(express.static('./webapp'));
+app.use(express.static('./dist'));
 app.use(bodyParser.urlencoded({extended: true, limit: '1mb'}));
 app.use(bodyParser.json());
 app.use(cookieParser(config.SECRET));

@@ -1,5 +1,5 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import Vue from '../lib/vue'
+import Vuex from '../lib/vuex'
 import state from './state'
 import getters from'./getters'
 

@@ -1,4 +1,4 @@
-import Vue from 'vue'
+import Vue from './lib/vue'
 import store from './store'
 import WeiboList from './com/WeiboList.vue'
 
