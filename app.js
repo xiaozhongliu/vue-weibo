@@ -14,7 +14,7 @@ let build = require('./build/build');
 
 let app = express();
 
-app.set('views', './dist');
+app.set('views', './webapp');
 app.set('view engine', 'html');
 app.engine('html', ejs);
 
@@ -35,8 +35,8 @@ app.use(session({
     saveUninitialized: true
 }));
 
-app.use(oauth.auth);
-app.use(oauth.weiboOAuth);
+//app.use(oauth.auth);
+//app.use(oauth.weiboOAuth);
 app.use('/', index);
 app.use('/others', others);
 

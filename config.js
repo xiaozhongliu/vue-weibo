@@ -15,6 +15,7 @@ module.exports = {
     // common libs needed to move from bower folders
     COMMON_LIBS: [
         'vue/dist/vue.js',
-        'vuex/dist/vuex.js'
+        'vuex/dist/vuex.js',
+        'vue-router/dist/vue-router.js',
     ]
 };
