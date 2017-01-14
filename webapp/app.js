@@ -5,7 +5,7 @@ import WeiboList from './com/WeiboList.vue'
 
 new Vue({
     el: '#app',
-    router,
     store,
+    router,
     render: h => h(WeiboList)
 });

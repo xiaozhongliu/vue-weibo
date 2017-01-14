@@ -55,6 +55,6 @@ app.use((err, req, res) => {
 });
 
 app.listen(config.PORT, () => {
-    build();
+    //build();
     console.log(`Webapp starts at http://localhost:${config.PORT}`);
 });

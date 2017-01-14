@@ -13,6 +13,10 @@
   "bugs": {
     "url": "https://github.com/XiaozhongLiu/weibo-vue/issues"
   },
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --open --inline --hot",
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
+  },
   "dependencies": {
     "body-parser": "^1.15.2",
     "compression": "^1.6.2",
@@ -21,7 +25,7 @@
     "ejs-mate": "^2.3.0",
     "express": "^4.14.0",
     "express-session": "^1.14.2",
-    "vue": "^2.1.8",
+    "vue": "^2.1.0",
     "weibo": "^0.6.11"
   },
   "devDependencies": {
