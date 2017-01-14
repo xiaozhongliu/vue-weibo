@@ -3,7 +3,7 @@ module.exports = {
     DEBUG: true,
 
     // webapp port
-    PORT: 3000,
+    PORT: 3100,
 
     // redis
     REDIS_HOST: '127.0.0.1',
