@@ -32,9 +32,7 @@ app.use(session({
     saveUninitialized: true
 }));
 app.use(express.static('./dist'));
-
-//app.use(oauth.auth);
-//app.use(oauth.weiboOAuth);
+app.use(oauth.weiboOAuth);
 
 app.use(router);
 app.use('/', (req, res) => {

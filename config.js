@@ -1,4 +1,5 @@
 module.exports = {
+
     // is debug mode
     DEBUG: true,
 
@@ -17,5 +18,9 @@ module.exports = {
         'vue/dist/vue.js',
         'vuex/dist/vuex.js',
         'vue-router/dist/vue-router.js',
-    ]
+    ],
+
+    // weibo
+    APP_KEY: '242299217',
+    APP_SECRET: 'f87e10f774d412cfecf2a7c2e98d3c05',
 };
