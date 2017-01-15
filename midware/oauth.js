@@ -7,17 +7,15 @@ let config = require('../config');
 
 weibo.init('weibo', config.APP_KEY, config.APP_SECRET);
 
-module.exports = {
-    weiboOAuth: weibo.oauth({
-        blogtypeField: 'type',
-        homeUrl: 'http://127.0.0.1:3100',
-        afterLogin: function (req, res, callback) {
-            console.log(req.session.oauthUser.screen_name, 'login success');
-            process.nextTick(callback);
-        },
-        beforeLogout: function (req, res, callback) {
-            console.log(req.session.oauthUser.screen_name, 'loging out');
-            process.nextTick(callback);
-        }
-    })
-};
+module.exports = weibo.oauth({
+    blogtypeField: 'type',
+    homeUrl: 'http://127.0.0.1:3100',
+    afterLogin: function (req, res, callback) {
+        console.log(req.session.oauthUser.screen_name, 'login success');
+        process.nextTick(callback);
+    },
+    beforeLogout: function (req, res, callback) {
+        console.log(req.session.oauthUser.screen_name, 'loging out');
+        process.nextTick(callback);
+    }
+});

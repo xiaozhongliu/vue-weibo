@@ -3,8 +3,10 @@ module.exports = {
     // is debug mode
     DEBUG: true,
 
-    // webapp port
-    PORT: 3100,
+    // site port
+    SITE_PORT: 3000,
+    // api port
+    API_PORT: 3100,
 
     // redis
     REDIS_HOST: '127.0.0.1',
@@ -12,13 +14,6 @@ module.exports = {
 
     // secret for cookie and session
     SECRET: '^u-Dont-KNOW$',
-
-    // common libs needed to move from bower folders
-    COMMON_LIBS: [
-        'vue/dist/vue.js',
-        'vuex/dist/vuex.js',
-        'vue-router/dist/vue-router.js',
-    ],
 
     // weibo
     APP_KEY: '242299217',

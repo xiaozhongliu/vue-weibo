@@ -5,7 +5,5 @@ logs
 *.log
 npm-debug.log*
 
-bower_components
 node_modules
-webapp/lib
 dist
