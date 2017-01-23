@@ -9,6 +9,6 @@ store.replaceState(window.__INITIAL_STATE__)
 app.$mount('#app')
 
 // service worker
-if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
+if (process.env.NODE_ENV === 'prod' && 'serviceWorker' in navigator) {
   navigator.serviceWorker.register('/service-worker.js')
 }

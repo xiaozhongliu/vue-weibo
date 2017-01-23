@@ -1,5 +1,5 @@
-const webpack = require('webpack')
-const base = require('./webpack.base.config')
+const webpack = require('webpack');
+const base = require('./webpack.base.config');
 
 module.exports = Object.assign({}, base, {
     target: 'node',
@@ -21,4 +21,4 @@ module.exports = Object.assign({}, base, {
             'process.env.VUE_ENV': '"server"'
         })
     ]
-})
+});

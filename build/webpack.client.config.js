@@ -1,9 +1,9 @@
-const webpack = require('webpack')
-const base = require('./webpack.base.config')
-const vueConfig = require('./vue-loader.config')
-const HTMLPlugin = require('html-webpack-plugin')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const SWPrecachePlugin = require('sw-precache-webpack-plugin')
+const webpack = require('webpack');
+const base = require('./webpack.base.config');
+const vueConfig = require('./vue-loader.config');
+const HTMLPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const SWPrecachePlugin = require('sw-precache-webpack-plugin');
 
 const config = Object.assign({}, base, {
     resolve: {
@@ -26,9 +26,9 @@ const config = Object.assign({}, base, {
             template: 'src/index.template.html'
         })
     ])
-})
+});
 
-if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === 'prod') {
     // Use ExtractTextPlugin to extract CSS into a single file
     // so it's applied on initial render.
     // vueConfig is already included in the config via LoaderOptionsPlugin
@@ -39,7 +39,7 @@ if (process.env.NODE_ENV === 'production') {
             loader: 'css-loader!stylus-loader',
             fallbackLoader: 'vue-style-loader' // <- this is a dep of vue-loader
         })
-    }
+    };
 
     config.plugins.push(
         new ExtractTextPlugin('styles.[hash].css'),
@@ -62,4 +62,4 @@ if (process.env.NODE_ENV === 'production') {
     )
 }
 
-module.exports = config
+module.exports = config;

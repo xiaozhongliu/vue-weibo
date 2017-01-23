@@ -1,20 +1,28 @@
+require('./globalHelper');
 let express = require('express');
-let compress = require('compression');
 let bodyParser = require('body-parser');
 let cookieParser = require('cookie-parser');
 let session = require('express-session');
 let RedisStore = require('connect-redis')(session);
-
-let {oauth} = require('./midware');
+let expressValidator = require('express-validator');
 let router = require('./router');
-let config = require('./config');
+let {
+    httpAuth,
+    httplog,
+    cors,
+    oauth,
+    validate,
+} = require('./midware');
+let {
+    config,
+    customValidators,
+} = require('./util');
 
 let app = express();
-app.use(compress());
-app.use(bodyParser.urlencoded({
-    extended: true, limit: '1mb'
-}));
+
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(expressValidator({customValidators}));
 app.use(cookieParser(config.SECRET));
 app.use(session({
     secret: config.SECRET,
@@ -25,18 +33,26 @@ app.use(session({
     resave: true,
     saveUninitialized: true
 }));
+
+app.get(config.HTTP_AUTH.itemsReg, httpAuth);
+app.use(httplog);
+app.use(cors);
 app.use(oauth);
+app.use(validate.common);
 app.use(router);
 
 app.use((req, res, next) => {
-    let err = new Error(`API Not Found: ${req.url}`);
-    err.status = 404;
-    next(err);
-});
-app.use(({status = 500, message}, req, res, next) => {
-    res.json({code: status, msg: message});
+    next(MessageErr('NotFound'));
 });
 
-app.listen(config.API_PORT, () => {
-    console.log(`API service starts at http://localhost:${config.API_PORT}`);
+//collection of custom error codes
+let messages = require('./message');
+let messageCodes = [...messages.values()].map(i => i.code);
+
+app.use(({code = -1, message, stack}, req, res, next) => {
+    res.json({code, msg: message});
+    //output stack of unexpected error to console, for trouble shooting
+    messageCodes.includes(code) || console.log(stack);
 });
+
+app.listen(config.API_PORT);

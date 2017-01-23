@@ -1,6 +1,6 @@
 import { app, router, store } from './app'
 
-const isDev = process.env.NODE_ENV !== 'production'
+const isDev = process.env.NODE_ENV !== 'prod'
 
 // This exported function will be called by `bundleRenderer`.
 // This is where we perform data-prefetching to determine the
