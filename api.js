@@ -11,7 +11,7 @@ let {
     httplog,
     cors,
     oauth,
-    validate,
+//    validate,
 } = require('./midware');
 let {
     config,
@@ -38,7 +38,7 @@ app.get(config.HTTP_AUTH.itemsReg, httpAuth);
 app.use(httplog);
 app.use(cors);
 app.use(oauth);
-app.use(validate.common);
+//app.use(validate.common);
 app.use(router);
 
 app.use((req, res, next) => {
