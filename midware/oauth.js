@@ -1,5 +1,5 @@
 let weibo = require('weibo');
-let {config} = require('../util');
+let config = require('../config')();
 
 /**
  * login url: http://127.0.0.1:3100/oauth?type=weibo

@@ -1,22 +1,22 @@
 require('./globalHelper');
-let express = require('express');
-let bodyParser = require('body-parser');
-let cookieParser = require('cookie-parser');
-let session = require('express-session');
-let RedisStore = require('connect-redis')(session);
-let expressValidator = require('express-validator');
-let router = require('./router');
-let {
+const express = require('express');
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+const session = require('express-session');
+const RedisStore = require('connect-redis')(session);
+const expressValidator = require('express-validator');
+const router = require('./router');
+const {
     httpAuth,
     httplog,
     cors,
     oauth,
 //    validate,
 } = require('./midware');
-let {
-    config,
+const {
     customValidators,
 } = require('./util');
+const config = require('./config')();
 
 let app = express();
 

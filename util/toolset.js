@@ -2,26 +2,6 @@ let crypto = require('crypto');
 
 module.exports = {
 
-    _config: null,
-
-    /**
-     * generate config by the env param
-     * @returns {*}
-     */
-    getConfig() {
-        if (!this._config) {
-            try {
-                this._config = require('../config/common');
-                let custom_config = require(`../config/${this._config.NODE_ENV}`);
-                Object.assign(this._config, custom_config);
-            } catch (e) {
-                console.log('Please make sure environment variable NODE_ENV is set.');
-                process.exit();
-            }
-        }
-        return this._config;
-    },
-
     /**
      * md5 hash
      * @param target: original string

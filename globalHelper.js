@@ -1,5 +1,5 @@
 //global helpers for custom errors
-let messages = require('./message');
+const messages = require('./message');
 global.Message = key => messages.get(key);
 global.MessageErr = key => {
     let {code, msg} = Message(key);

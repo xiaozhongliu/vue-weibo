@@ -5,7 +5,6 @@ module.exports = {
     validhelper: require('./validHelper'),
     customValidators: require('./customValidators'),
     logger: require('./logger'),
-    config: toolset.getConfig(),
     hash: toolset.hash,
     sign: toolset.sign,
 };

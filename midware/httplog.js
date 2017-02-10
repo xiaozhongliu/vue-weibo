@@ -1,4 +1,5 @@
-let {logger, config} = require('../util');
+const {logger} = require('../util');
+const config = require('../config')();
 
 logger.info(`【 Service starts on http://localhost:${config.API_PORT} 】\n`);
 
