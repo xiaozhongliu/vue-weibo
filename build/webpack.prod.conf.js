@@ -1,16 +1,16 @@
-var path = require('path')
-var config = require('../config')
-var utils = require('./utils')
-var webpack = require('webpack')
-var merge = require('webpack-merge')
-var baseWebpackConfig = require('./webpack.base.conf')
-var ExtractTextPlugin = require('extract-text-webpack-plugin')
-var HtmlWebpackPlugin = require('html-webpack-plugin')
-var env = process.env.NODE_ENV === 'testing'
+const path = require('path');
+const config = require('../config');
+const utils = require('./utils');
+const webpack = require('webpack');
+const merge = require('webpack-merge');
+const baseWebpackConfig = require('./webpack.base.conf');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+let env = process.env.NODE_ENV === 'testing'
     ? require('../config/test.env')
-    : config.build.env
+    : config.build.env;
 
-var webpackConfig = merge(baseWebpackConfig, {
+let webpackConfig = merge(baseWebpackConfig, {
     module: {
         loaders: utils.styleLoaders({sourceMap: config.build.productionSourceMap, extract: true})
     },
@@ -79,10 +79,10 @@ var webpackConfig = merge(baseWebpackConfig, {
             chunks: ['vendor']
         })
     ]
-})
+});
 
 if (config.build.productionGzip) {
-    var CompressionWebpackPlugin = require('compression-webpack-plugin')
+    let CompressionWebpackPlugin = require('compression-webpack-plugin');
 
     webpackConfig.plugins.push(
         new CompressionWebpackPlugin({
@@ -99,4 +99,4 @@ if (config.build.productionGzip) {
     )
 }
 
-module.exports = webpackConfig
+module.exports = webpackConfig;
