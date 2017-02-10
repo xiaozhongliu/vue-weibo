@@ -1,5 +1,5 @@
-let config = require('../util').config;
-let validate = require('../util').validhelper;
+const config = require('../util').config;
+const validate = require('../util').validhelper;
 
 module.exports = {
     /**

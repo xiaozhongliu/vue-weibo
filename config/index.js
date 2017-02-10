@@ -1,5 +1,7 @@
 module.exports = (() => {
+
     let _config;
+
     return function () {
         if (!_config) {
             try {

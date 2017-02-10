@@ -1,4 +1,4 @@
-let toolset = require('./toolset');
+const toolset = require('./toolset');
 
 module.exports = {
     redis: require('./redisClient')(),

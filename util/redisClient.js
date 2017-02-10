@@ -1,5 +1,7 @@
 module.exports = (() => {
+
     let client;
+
     return function () {
         if (!client) {
             let config = require('../config')();

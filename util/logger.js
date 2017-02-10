@@ -1,6 +1,6 @@
-let fs = require('fs');
-let log4js = require('log4js');
-let config = require('../config')();
+const fs = require('fs');
+const log4js = require('log4js');
+const config = require('../config')();
 
 let appenders = [{
     type: 'dateFile',
