@@ -3,8 +3,7 @@ const chalk = require('chalk');
 const packageConfig = require('../package.json');
 
 let exec = function (cmd) {
-    return require('child_process')
-        .execSync(cmd).toString().trim()
+    return require('child_process').execSync(cmd).toString().trim()
 };
 
 let versionRequirements = [
@@ -28,7 +27,7 @@ module.exports = function () {
             warnings.push(mod.name + ': ' +
                 chalk.red(mod.currentVersion) + ' should be ' +
                 chalk.green(mod.versionRequirement)
-            );
+            )
         }
     }
 
@@ -38,9 +37,9 @@ module.exports = function () {
         console.log();
         for (let i = 0; i < warnings.length; i++) {
             let warning = warnings[i];
-            console.log('  ' + warning);
+            console.log('  ' + warning)
         }
         console.log();
-        process.exit(1);
+        process.exit(1)
     }
 };

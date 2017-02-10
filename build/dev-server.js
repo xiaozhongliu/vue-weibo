@@ -1,5 +1,5 @@
 require('./check-versions')();
-const config = require('../config');
+const config = require('./config');
 if (!process.env.NODE_ENV) process.env.NODE_ENV = JSON.parse(config.dev.env.NODE_ENV);
 const path = require('path');
 const express = require('express');
@@ -32,7 +32,7 @@ let hotMiddleware = require('webpack-hot-middleware')(compiler);
 compiler.plugin('compilation', function (compilation) {
     compilation.plugin('html-webpack-plugin-after-emit', function (data, cb) {
         hotMiddleware.publish({action: 'reload'});
-        cb();
+        cb()
     })
 });
 
@@ -42,7 +42,7 @@ Object.keys(proxyTable).forEach(function (context) {
     if (typeof options === 'string') {
         options = {target: options}
     }
-    app.use(proxyMiddleware(context, options));
+    app.use(proxyMiddleware(context, options))
 });
 
 // handle fallback for HTML5 history API
@@ -61,8 +61,7 @@ app.use(staticPath, express.static('./static'));
 
 module.exports = app.listen(port, function (err) {
     if (err) {
-        console.log(err);
-        return
+        return console.log(err);
     }
     let uri = 'http://localhost:' + port;
     console.log('Listening at ' + uri + '\n');

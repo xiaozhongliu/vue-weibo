@@ -1,5 +1,5 @@
 const path = require('path');
-const config = require('../config');
+const config = require('./config');
 const utils = require('./utils');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
@@ -7,7 +7,7 @@ const baseWebpackConfig = require('./webpack.base.conf');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 let env = process.env.NODE_ENV === 'testing'
-    ? require('../config/test.env')
+    ? require('config/test.env.js')
     : config.build.env;
 
 let webpackConfig = merge(baseWebpackConfig, {

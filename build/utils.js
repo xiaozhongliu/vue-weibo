@@ -1,5 +1,5 @@
 const path = require('path');
-const config = require('../config');
+const config = require('./config');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 exports.assetsPath = function (_path) {
@@ -17,10 +17,10 @@ exports.cssLoaders = function (options) {
             let extraParamChar;
             if (/\?/.test(loader)) {
                 loader = loader.replace(/\?/, '-loader?');
-                extraParamChar = '&';
+                extraParamChar = '&'
             } else {
                 loader = loader + '-loader';
-                extraParamChar = '?';
+                extraParamChar = '?'
             }
             return loader + (options.sourceMap ? extraParamChar + 'sourceMap' : '')
         }).join('!');

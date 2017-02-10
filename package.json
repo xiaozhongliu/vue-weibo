@@ -1,7 +1,7 @@
 {
   "name": "weibo-vue",
   "homepage": "https://github.com/XiaozhongLiu/weibo-vue#readme",
-  "description": "practice vue",
+  "description": "Practice vue en webpack.",
   "version": "0.0.1",
   "license": "ISC",
   "main": "app.js",
@@ -9,9 +9,6 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/XiaozhongLiu/weibo-vue.git"
-  },
-  "bugs": {
-    "url": "https://github.com/XiaozhongLiu/weibo-vue/issues"
   },
   "scripts": {
     "dev": "node build/dev-server.js",

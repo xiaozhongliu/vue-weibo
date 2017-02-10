@@ -1,11 +1,11 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
-var path = require('path')
+const path = require('path');
 
 module.exports = {
     build: {
-        env: require('./prod.env'),
-        index: path.resolve(__dirname, '../dist/index.html'),
-        assetsRoot: path.resolve(__dirname, '../dist'),
+        env: require('./prod.env.js'),
+        index: path.resolve(__dirname, '../../dist/index.html'),
+        assetsRoot: path.resolve(__dirname, '../../dist'),
         assetsSubDirectory: 'static',
         assetsPublicPath: '/',
         productionSourceMap: true,
@@ -17,7 +17,7 @@ module.exports = {
         productionGzipExtensions: ['js', 'css']
     },
     dev: {
-        env: require('./dev.env'),
+        env: require('./dev.env.js'),
         port: 8080,
         assetsSubDirectory: 'static',
         assetsPublicPath: '/',
@@ -29,4 +29,4 @@ module.exports = {
         // just be aware of this issue when enabling this option.
         cssSourceMap: false
     }
-}
+};

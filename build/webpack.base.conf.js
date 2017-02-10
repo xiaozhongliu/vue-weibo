@@ -1,5 +1,5 @@
 const path = require('path');
-const config = require('../config');
+const config = require('./config');
 const utils = require('./utils');
 const projectRoot = path.resolve(__dirname, '../');
 
