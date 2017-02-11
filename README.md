@@ -4,10 +4,10 @@ Practice vue en webpack.
 Start using:
 ```
 1. npm install
-2. npm run api (for backend development. will support hot reload soon.)
+2. npm run api
 3. npm run dev (for frontend development. supports hot reload.)
 ```
-For production:
+For prod:
 ```
 1. npm install
 2. npm run build

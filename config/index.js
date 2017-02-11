@@ -5,7 +5,7 @@ module.exports = (() => {
     return function () {
         if (!_config) {
             try {
-                _config = require('../config/common');
+                _config = require('../config/base');
                 let custom_config = require(`../config/${_config.NODE_ENV}`);
                 Object.assign(_config, custom_config);
             } catch (e) {

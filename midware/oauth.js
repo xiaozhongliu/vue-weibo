@@ -2,7 +2,7 @@ const weibo = require('weibo');
 const config = require('../config')();
 
 /**
- * login url: http://127.0.0.1:3100/oauth?type=weibo
+ * http://127.0.0.1:3100/oauth?type=weibo
  */
 
 weibo.init('weibo', config.APP_KEY, config.APP_SECRET);

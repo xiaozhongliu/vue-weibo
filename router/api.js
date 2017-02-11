@@ -3,14 +3,19 @@ const request = require('request');
 
 module.exports = router => {
 
+
     router.get('/', (req, res) => {
+
         if (!req.session.oauthUser) {
-            res.redirect('/oauth?type=weibo');
+            return res.redirect('/oauth?type=weibo')
         }
         res.redirect('http://127.0.0.1:3000')
     });
 
-    // http://127.0.0.1:3100/oauth?type=weibo
+
+    /**
+     * http://127.0.0.1:3100/oauth?type=weibo
+     */
     router.get('/weiboAuth', (req, res, next) => {
 
         let url = req.session.oauthUser ?
@@ -19,7 +24,10 @@ module.exports = router => {
         res.redirect(url)
     });
 
-    // http://127.0.0.1:3100/timeline
+
+    /**
+     * http://127.0.0.1:3100/timeline
+     */
     router.get('/timeline', (req, res, next) => {
 
         let {
