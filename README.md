@@ -2,10 +2,17 @@
 Practice vue en webpack.
 
 Start using:
-```text
+```
 1. npm install
-2. node api (for backend development. will support hot reload soon.)
+2. npm run api (for backend development. will support hot reload soon.)
 3. npm run dev (for frontend development. supports hot reload.)
+```
+For production:
+```
+1. npm install
+2. npm run build
+3. npm run api
+4. npm run prod
 ```
 
 About weibo module  

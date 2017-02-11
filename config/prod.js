@@ -3,7 +3,7 @@ module.exports = {
     DEBUG: false,
 
     // site port
-    SITE_PORT: 3000,
+    APP_PORT: 3000,
     // api port
     API_PORT: 3100,
 
