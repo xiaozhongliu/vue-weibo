@@ -1,6 +1,6 @@
 module.exports = {
     httpAuth: require('./httpAuth'),
-    httplog: require('./httplog'),
+    httpLog: require('./httpLog'),
     cors: require('./cors'),
     oauth: require('./oauth'),
     validate: require('./validate'),

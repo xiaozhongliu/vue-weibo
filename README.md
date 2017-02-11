@@ -6,7 +6,6 @@ Start using:
 1. npm install
 2. node api (for backend development. will support hot reload soon.)
 3. npm run dev (for frontend development. supports hot reload.)
-4. visit http://localhost:3000
 ```
 
 About weibo module  

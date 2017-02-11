@@ -6,10 +6,14 @@ import store from './store'
 
 Vue.use(VueResource)
 
+// ajax requests will send session cookie
+Vue.http.options.credentials = true
+
 /* eslint-disable no-new */
 new Vue({
-  template: '<App/>',
-  components: { App },
-  router,
-  store
-}).$mount('#app')
+    el: '#app',
+    template: '<App/>',
+    components: {App},
+    router,
+    store
+})

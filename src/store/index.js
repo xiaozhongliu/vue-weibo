@@ -1,11 +1,6 @@
 import Vuex from 'vuex';
 import Vue from 'vue';
-import people from './modules/people'
+import modules from './modules'
 
 Vue.use(Vuex);
-
-export default new Vuex.Store({
-  modules: {
-    people
-  }
-})
+export default new Vuex.Store({modules})

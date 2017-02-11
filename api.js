@@ -8,7 +8,7 @@ const expressValidator = require('express-validator');
 const router = require('./router');
 const {
     httpAuth,
-    httplog,
+    httpLog,
     cors,
     oauth,
 //    validate,
@@ -35,7 +35,7 @@ app.use(session({
 }));
 
 app.get(config.HTTP_AUTH.itemsReg, httpAuth);
-app.use(httplog);
+app.use(httpLog);
 app.use(cors);
 app.use(oauth);
 //app.use(validate.common);

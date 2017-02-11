@@ -7,11 +7,20 @@ module.exports = router => {
         if (!req.session.oauthUser) {
             res.redirect('/oauth?type=weibo');
         }
-        res.json({code: 1, msg: 'auth succeeds'});
+        res.redirect('http://127.0.0.1:3000')
     });
 
-    // http://127.0.0.1:3100/timelines
-    router.get('/timelines', (req, res, next) => {
+    // http://127.0.0.1:3100/oauth?type=weibo
+    router.get('/weiboAuth', (req, res, next) => {
+
+        let url = req.session.oauthUser ?
+            'http://127.0.0.1:3000' :
+            '/oauth?type=weibo';
+        res.redirect(url)
+    });
+
+    // http://127.0.0.1:3100/timeline
+    router.get('/timeline', (req, res, next) => {
 
         let {
             type = 'public',
@@ -23,6 +32,6 @@ module.exports = router => {
         let params = qs.stringify({access_token, count, page});
         let url = `https://api.weibo.com/2/statuses/${type}_timeline.json?${params}`;
 
-        request.get(url).on('error', next).pipe(res);
-    });
+        request.get(url).on('error', next).pipe(res)
+    })
 };
