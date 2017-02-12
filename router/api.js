@@ -1,5 +1,6 @@
 const qs = require('querystring');
 const request = require('request');
+const config = require('./config')();
 
 module.exports = router => {
 
@@ -9,7 +10,7 @@ module.exports = router => {
         if (!req.session.oauthUser) {
             return res.redirect('/oauth?type=weibo')
         }
-        res.redirect('http://127.0.0.1:3000')
+        res.redirect(config.APP_REDIRECT_URL)
     });
 
 
@@ -19,7 +20,7 @@ module.exports = router => {
     router.get('/weiboAuth', (req, res, next) => {
 
         let url = req.session.oauthUser ?
-            'http://127.0.0.1:3000' :
+            config.APP_REDIRECT_URL :
             '/oauth?type=weibo';
         res.redirect(url)
     });

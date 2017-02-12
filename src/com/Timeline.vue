@@ -1,8 +1,6 @@
 <template>
-    <div>
-        <h2>{{msg}}</h2>
-        <mt-button type="primary" size="small" @click="weiboAuth">Login Weibo</mt-button>
-        <mt-button type="primary" size="small" @click="getTimelines">Get Timelines</mt-button>
+    <div class="timelines">
+        <mt-button type="primary" size="small" @click="getTimelines">Refresh Timelines</mt-button>
         <br/>
         <br/>
         <div v-for="item in timelines">
@@ -18,15 +16,11 @@
     import {Button} from 'mint-ui'
 
     export default {
-        name: 'hello',
         data () {
-            return {
-                msg: 'Weibo Timelines'
-            }
+            return {}
         },
         methods: {
             ...mapActions([
-                'weiboAuth',
                 'getTimelines'
             ])
         },
@@ -34,12 +28,19 @@
             timelines() {
                 return this.$store.getters.timelines
             }
+        },
+        mounted() {
+            this.getTimelines();
         }
     }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style lang="scss" rel="stylesheet/scss" scoped>
+    .timelines {
+        padding: 0 8px 8px;
+    }
+
     .head {
         position: relative;
         top: 4px;

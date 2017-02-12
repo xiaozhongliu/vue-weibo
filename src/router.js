@@ -7,11 +7,25 @@ export default new VueRouter({
     routes: [
         {
             path: '/',
-            component: resolve => require(['./com/Hello.vue'], resolve)
+            component: resolve => require(['./com/Entry.vue'], resolve)
+        },
+        {
+            path: '/main',
+            component: resolve => require(['./com/Main.vue'], resolve),
+            children: [
+                {
+                    path: '/public_timeline',
+                    component: resolve => require(['./com/Timeline.vue'], resolve)
+                },
+                {
+                    path: '/friends_timeline',
+                    component: resolve => require(['./com/Timeline.vue'], resolve)
+                }
+            ]
         },
         {
             path: '*',
-            redirect: '/'
+            redirect: '/public_timeline'
         }
     ]
 })
