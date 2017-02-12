@@ -1,6 +1,6 @@
 const auth = require('http-auth');
 const fs = require('fs');
-const config = require('../util').config;
+const config = require('../config')();
 
 let basic = auth.basic({
         realm: "Http Auth Realm"
