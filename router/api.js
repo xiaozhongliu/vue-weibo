@@ -2,6 +2,8 @@ const qs = require('querystring');
 const request = require('request');
 const config = require('../config')();
 
+const APP_REDIRECT_URL = `http://${config.APP_DOMAIN}:${config.APP_PORT}/#/public_timeline`;
+
 module.exports = router => {
 
 
@@ -10,7 +12,7 @@ module.exports = router => {
         if (!req.session.oauthUser) {
             return res.redirect('/oauth?type=weibo')
         }
-        res.redirect(config.APP_REDIRECT_URL)
+        res.redirect(APP_REDIRECT_URL)
     });
 
 
@@ -20,7 +22,7 @@ module.exports = router => {
     router.get('/weiboAuth', (req, res, next) => {
 
         let url = req.session.oauthUser ?
-            config.APP_REDIRECT_URL :
+            APP_REDIRECT_URL :
             '/oauth?type=weibo';
         res.redirect(url)
     });
