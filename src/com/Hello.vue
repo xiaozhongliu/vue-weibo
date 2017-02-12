@@ -1,8 +1,8 @@
 <template>
     <div>
         <h2>{{msg}}</h2>
-        <button @click="weiboAuth">Login Weibo</button>
-        <button @click="getTimelines">Get Timelines</button>
+        <mt-button type="primary" size="small" @click="weiboAuth">Login Weibo</mt-button>
+        <mt-button type="primary" size="small" @click="getTimelines">Get Timelines</mt-button>
         <br/>
         <br/>
         <div v-for="item in timelines">
@@ -15,6 +15,7 @@
 
 <script>
     import {mapActions} from 'vuex'
+    import {Button} from 'mint-ui'
 
     export default {
         name: 'hello',
