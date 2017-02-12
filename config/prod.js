@@ -3,7 +3,7 @@ module.exports = {
     DEBUG: false,
 
     // app
-    APP_DOMAIN: 'flashbeep.cn',
+    APP_DOMAIN: 'www.flashbeep.cn',
     APP_PORT: 80,
 
     // api port
