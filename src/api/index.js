@@ -1,4 +1,10 @@
 import Vue from 'vue'
+import VueResource from 'vue-resource'
+
+Vue.use(VueResource)
+
+// ajax requests will send session cookie
+Vue.http.options.credentials = true
 
 export default {
 
