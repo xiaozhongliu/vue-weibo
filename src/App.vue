@@ -9,11 +9,15 @@
 </script>
 
 <style lang="scss" rel="stylesheet/scss">
+    @import './asset/reset.scss';
+    @import './asset/vars.scss';
+
     .app {
         font-family: 'Avenir', Helvetica, Arial, sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         color: #2c3e50;
-        margin-top: 60px;
+        background: #efefef;
+        margin-top: $header-height
     }
 </style>

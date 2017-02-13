@@ -30,7 +30,7 @@
         text-align: center;
 
         h1 {
-            font-size: 1.6rem;
+            font-size: 1.6rem
         }
     }
 </style>

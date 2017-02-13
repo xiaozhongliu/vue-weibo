@@ -52,6 +52,7 @@ html {
 }
 
 *, *:before, *:after {
+  z-index: 0;
   box-sizing: inherit;
 }
 

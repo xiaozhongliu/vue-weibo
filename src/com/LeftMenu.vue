@@ -31,6 +31,11 @@
     import {mapGetters} from 'vuex'
 
     export default {
+        data(){
+            return {
+                menuElement: null
+            }
+        },
         computed: {
             ...mapGetters([
                 'isMenuShow',
@@ -39,6 +44,16 @@
         },
         methods: {
             toggleMenu(isHide) {
+
+                if (!this.menuElement) {
+                    this.menuElement = document.querySelector('.menu')
+                }
+                this.menuElement.style.height = '100%';
+
+                isHide && setTimeout(() => {
+                    this.menuElement.style.height = '48px';
+                }, 300);
+
                 this.$store.commit('TOGGLE_MENU', isHide)
             }
         }
@@ -46,7 +61,10 @@
 </script>
 
 <style lang="scss" rel="stylesheet/scss">
+    @import '../asset/vars.scss';
+
     .menu {
+        z-index: 100;
         display: flex;
         position: absolute;
         top: 0;
@@ -56,7 +74,6 @@
         transition: left .2s linear;
 
         aside {
-            z-index: 100;
             width: 40%;
             height: 100%;
             background: #fff;
@@ -67,14 +84,14 @@
 
                 img {
                     width: 70px;
-                    border-radius: 35px;
+                    border-radius: 35px
                 }
             }
 
             li {
                 display: block;
                 padding: 5px 20px;
-                border-bottom: #ddd 1px solid;
+                border-bottom: #ddd 1px solid
             }
 
             li:first-child {
@@ -91,7 +108,7 @@
 
                 img {
                     width: 25px;
-                    margin: 10px 5px 5px 10px;
+                    margin: 10px 5px 5px 10px
                 }
 
                 .title {
@@ -99,19 +116,16 @@
                     position: relative;
                     top: -7px;
                     width: calc(100% - 80px);
-                    text-align: center;
+                    text-align: center
                 }
-
             }
 
             .shade {
-                z-index: -1;
                 width: 100%;
-                height: 100%;
+                height: calc(100% - #{$header-height});
                 opacity: .5;
                 transition: background .2s linear
             }
-
         }
     }
 
@@ -119,9 +133,12 @@
         left: 0;
 
         .shade {
-            z-index: 1;
-            background: #aaa;
+            background: #aaa
         }
+    }
 
+    .menu_show + .content {
+        height: calc(100vh - #{$header-height});
+        overflow: hidden
     }
 </style>
