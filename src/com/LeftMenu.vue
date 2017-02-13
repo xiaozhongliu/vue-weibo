@@ -8,10 +8,10 @@
             {{textValue}}
             <ul>
                 <li @click="toggleMenu">
-                    <router-link to="/public_timeline">公共微博</router-link>
+                    <router-link to="/timeline/public">公共微博</router-link>
                 </li>
                 <li @click="toggleMenu">
-                    <router-link to="/friends_timeline">朋友微博</router-link>
+                    <router-link to="/timeline/friends">朋友微博</router-link>
                 </li>
             </ul>
         </aside>
@@ -19,7 +19,7 @@
             <header>
                 <img @click="toggleMenu(isMenuShow)" src="../asset/img/menu.png" alt="">
                 <div class="title">
-                    <span>公共微博</span>
+                    <span>{{timelineType}}</span>
                 </div>
             </header>
             <div class="shade" @click="toggleMenu(true)"></div>
@@ -31,13 +31,10 @@
     import {mapGetters} from 'vuex'
 
     export default {
-        name: 'LeftMenu',
-        data() {
-            return {}
-        },
         computed: {
             ...mapGetters([
-                'isMenuShow'
+                'isMenuShow',
+                'timelineType'
             ])
         },
         methods: {

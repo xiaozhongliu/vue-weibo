@@ -1,8 +1,5 @@
 <template>
     <div class="timelines">
-        <mt-button type="primary" size="small" @click="getTimelines">Refresh Timelines</mt-button>
-        <br/>
-        <br/>
         <div v-for="item in timelines">
             <img class="head" :src="item.user.profile_image_url"/>
             <span class="name">{{item.user.name}}</span>:
@@ -16,9 +13,6 @@
     import {Button} from 'mint-ui'
 
     export default {
-        data () {
-            return {}
-        },
         methods: {
             ...mapActions([
                 'getTimelines'
@@ -30,7 +24,11 @@
             }
         },
         mounted() {
-            this.getTimelines();
+            this.getTimelines(this.$route.params.type)
+        },
+        beforeRouteUpdate(to, from, next) {
+            this.getTimelines(to.params.type);
+            next()
         }
     }
 </script>
@@ -38,7 +36,7 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" rel="stylesheet/scss" scoped>
     .timelines {
-        padding: 0 8px 8px;
+        padding: 0 13px 10px;
     }
 
     .head {
