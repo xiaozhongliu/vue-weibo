@@ -17,9 +17,9 @@ module.exports = router => {
 
 
     /**
-     * http://127.0.0.1:3100/oauth?type=weibo
+     * http://127.0.0.1:3100/weiboAuth
      */
-    router.get('/weiboAuth', (req, res, next) => {
+    router.get('/weiboAuth', (req, res) => {
 
         let url = req.session.oauthUser ?
             APP_REDIRECT_URL :
