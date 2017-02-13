@@ -22,7 +22,7 @@
                     <span>公共微博</span>
                 </div>
             </header>
-            <div class="shade"></div>
+            <div class="shade" @click="toggleMenu"></div>
         </main>
     </div>
 </template>
