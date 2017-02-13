@@ -59,11 +59,12 @@ app.use(hotMiddleware);
 let staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory);
 app.use(staticPath, express.static('./static'));
 
+const siteConfig = require('../config')();
 module.exports = app.listen(port, function (err) {
     if (err) {
         return console.log(err);
     }
-    let uri = 'http://127.0.0.1:' + port;
+    let uri = `http://${siteConfig.APP_DOMAIN}:${port}`;
     console.log('Listening at ' + uri + '\n');
 
     // when env is testing, don't need open it

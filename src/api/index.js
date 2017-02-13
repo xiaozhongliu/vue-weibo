@@ -26,7 +26,7 @@ export default {
 }
 
 function GET(url) {
-    return Vue.http.get(config.API_HOST + url)
+    return Vue.http.get(`${config.API_HOST}${url}?clientHost=${location.hostname}`)
 }
 
 function REDIRECT(url) {
