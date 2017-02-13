@@ -2,12 +2,24 @@ const qs = require('querystring');
 const request = require('request');
 const config = require('../config')();
 
-const APP_REDIRECT_URL = `http://${config.APP_DOMAIN}:${config.APP_PORT}/#/public_timeline`;
+const APP_REDIRECT_URL = `http://${config.APP_DOMAIN}:${config.APP_PORT}`;
 
 module.exports = router => {
 
 
-    router.get('/', (req, res) => {
+    router.get('/', (req, res, next) => {
+
+        if (!req.session.oauthUser) {
+            return res.redirect('/oauth?type=weibo')
+        }
+        next(MessageErr('AuthAlreadyDone'))
+    });
+
+
+    /**
+     * http://127.0.0.1:3100/weiboAuth
+     */
+    router.get('/weiboAuth', (req, res, next) => {
 
         if (!req.session.oauthUser) {
             return res.redirect('/oauth?type=weibo')
@@ -17,21 +29,13 @@ module.exports = router => {
 
 
     /**
-     * http://127.0.0.1:3100/weiboAuth
-     */
-    router.get('/weiboAuth', (req, res) => {
-
-        let url = req.session.oauthUser ?
-            APP_REDIRECT_URL :
-            '/oauth?type=weibo';
-        res.redirect(url)
-    });
-
-
-    /**
      * http://127.0.0.1:3100/timeline
      */
     router.get('/timeline', (req, res, next) => {
+
+        if (!req.session.oauthUser) {
+            return next(MessageErr('AuthFail'))
+        }
 
         let {
             type = 'public',
@@ -43,6 +47,11 @@ module.exports = router => {
         let params = qs.stringify({access_token, count, page});
         let url = `https://api.weibo.com/2/statuses/${type}_timeline.json?${params}`;
 
-        request.get(url).on('error', next).pipe(res)
+        request.get(url, (err, response, body) => {
+            if (err) {
+                return next(err)
+            }
+            res.json(JSON.parse(body))
+        })
     })
 };

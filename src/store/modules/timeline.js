@@ -1,4 +1,5 @@
 import API from '../../api'
+import router from '../../router'
 
 export default {
 
@@ -19,6 +20,9 @@ export default {
     actions: {
         getTimelines({commit}) {
             API.getTimelines().then(res => {
+                if (res.body.code == 1001) {
+                    return router.push('entry')
+                }
                 commit('GET_TIMELINES', res.body.statuses)
             })
         }

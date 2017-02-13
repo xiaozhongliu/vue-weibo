@@ -6,7 +6,8 @@ Vue.use(VueRouter)
 export default new VueRouter({
     routes: [
         {
-            path: '/',
+            name: 'entry',
+            path: '/entry',
             component: resolve => require(['./com/Entry.vue'], resolve)
         },
         {

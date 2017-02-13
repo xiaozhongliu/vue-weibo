@@ -9,8 +9,8 @@ export default {
     },
 
     mutations: {
-        TOGGLE_MENU (state) {
-            state.isMenuShow = !state.isMenuShow
+        TOGGLE_MENU (state, isHide) {
+            state.isMenuShow = isHide ? false : !state.isMenuShow
         }
     },
 }

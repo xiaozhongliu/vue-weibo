@@ -17,12 +17,12 @@
         </aside>
         <main>
             <header>
-                <img @click="toggleMenu" src="../asset/img/menu.png" alt="">
+                <img @click="toggleMenu(isMenuShow)" src="../asset/img/menu.png" alt="">
                 <div class="title">
                     <span>公共微博</span>
                 </div>
             </header>
-            <div class="shade" @click="toggleMenu"></div>
+            <div class="shade" @click="toggleMenu(true)"></div>
         </main>
     </div>
 </template>
@@ -41,9 +41,8 @@
             ])
         },
         methods: {
-            toggleMenu() {
-                this.$store.commit('TOGGLE_MENU')
-                console.log(this.isMenuShow)
+            toggleMenu(isHide) {
+                this.$store.commit('TOGGLE_MENU', isHide)
             }
         }
     }
