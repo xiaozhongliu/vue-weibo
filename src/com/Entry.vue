@@ -28,6 +28,7 @@
 <style lang="scss" rel="stylesheet/scss">
     .entry {
         text-align: center;
+        padding-top: 15%;
 
         h1 {
             font-size: 1.6rem

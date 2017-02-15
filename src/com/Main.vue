@@ -2,7 +2,9 @@
     <div>
         <LeftMenu></LeftMenu>
         <div class="content">
-            <router-view></router-view>
+            <transition name="slide-fade">
+                <router-view :key="$route.params.type"></router-view>
+            </transition>
         </div>
     </div>
 </template>
@@ -16,5 +18,7 @@
 </script>
 
 <style lang="scss" rel="stylesheet/scss">
-
+    .content {
+        padding-top: 40px
+    }
 </style>
