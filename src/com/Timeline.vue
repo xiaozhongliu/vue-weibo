@@ -4,7 +4,7 @@
             <img class="head" :src="item.user.profile_image_url"/>
             <span class="name">{{item.user.name}}</span>:
             <span class="text">{{item.text}}</span>
-            <img class="pic" :src="item.bmiddle_pic"/>
+            <img class="pic" v-lazy="item.bmiddle_pic"/>
         </div>
     </div>
 </template>

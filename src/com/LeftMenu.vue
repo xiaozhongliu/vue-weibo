@@ -68,13 +68,13 @@
         display: flex;
         position: absolute;
         top: 0;
-        left: -40%;
-        width: 140%;
+        left: -70%;
+        width: 170%;
         height: 100%;
-        transition: left .2s linear;
+        transition: left .2s linear, width .2s linear;
 
         aside {
-            width: 40%;
+            width: 70%;
             height: 100%;
             background: #fff;
 
@@ -131,6 +131,7 @@
 
     .menu_show {
         left: 0;
+        width: 100%;
 
         .shade {
             background: #aaa
