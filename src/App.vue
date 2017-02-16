@@ -20,6 +20,13 @@
         color: #2c3e50
     }
 
+    .emotion {
+        position: relative;
+        top: 2px;
+        width: 15px;
+        margin: 0 2px;
+    }
+
     .slide-fade-enter-active {
         transition: all 1s cubic-bezier(1, 0, 1, 1);;
     }

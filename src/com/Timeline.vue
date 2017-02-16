@@ -3,7 +3,7 @@
         <div class="timeline" v-for="item in timelines">
             <img class="head" :src="item.user.profile_image_url"/>
             <span class="name">{{item.user.name}}</span>:
-            <span class="text">{{item.text}}</span>
+            <span class="text" v-html="item.text"></span>
             <img class="pic" v-if="item.bmiddle_pic" v-lazy="item.bmiddle_pic"/>
         </div>
     </div>

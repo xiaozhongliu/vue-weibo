@@ -1,7 +1,8 @@
 const router = require('express').Router();
 
 adopt([
-    './api'
+    './timeline',
+    './emotion'
 ]);
 
 function adopt(routes) {
