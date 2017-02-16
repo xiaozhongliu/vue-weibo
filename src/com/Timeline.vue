@@ -4,7 +4,7 @@
             <img class="head" :src="item.user.profile_image_url"/>
             <span class="name">{{item.user.name}}</span>:
             <span class="text">{{item.text}}</span>
-            <img class="pic" v-lazy="item.bmiddle_pic"/>
+            <img class="pic" v-if="item.bmiddle_pic" v-lazy="item.bmiddle_pic"/>
         </div>
     </div>
 </template>
@@ -56,6 +56,10 @@
 
     .name {
         color: blue
+    }
+
+    .text {
+        word-break: break-all
     }
 
     .pic {

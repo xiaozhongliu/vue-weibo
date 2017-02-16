@@ -25,7 +25,7 @@
     }
 </script>
 
-<style lang="scss" rel="stylesheet/scss">
+<style lang="scss" rel="stylesheet/scss" scoped>
     .entry {
         text-align: center;
         padding-top: 15%;

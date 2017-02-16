@@ -1,11 +1,10 @@
 <template>
-    <div class="menu" :class="{'menu_show':isMenuShow}">
+    <div class="menu" :class="{menu_show:isMenuShow}">
         <aside>
             <div class="head">
                 <img src="http://tva3.sinaimg.cn/crop.0.0.180.180.180/7896a011jw1e8qgp5bmzyj2050050aa8.jpg">
                 <div class="username">DreamsAchieved</div>
             </div>
-            {{textValue}}
             <ul>
                 <li @click="toggleMenu">
                     <router-link to="/timeline/public">公共微博</router-link>
@@ -60,7 +59,7 @@
     }
 </script>
 
-<style lang="scss" rel="stylesheet/scss">
+<style lang="scss" rel="stylesheet/scss" scoped>
     @import '../asset/vars.scss';
 
     .menu {

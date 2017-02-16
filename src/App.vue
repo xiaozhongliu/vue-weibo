@@ -16,17 +16,18 @@
 
     .app {
         font-family: 'Avenir', Helvetica, Arial, sans-serif;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
+        font-size: 90%;
         color: #2c3e50
     }
 
     .slide-fade-enter-active {
-        transition: all 2s ease;
+        transition: all 1s cubic-bezier(1, 0, 1, 1);;
     }
+
     .slide-fade-leave-active {
-        transition: all .5s ease;
+        transition: all .3s ease;
     }
+
     .slide-fade-enter, .slide-fade-leave-active {
         transform: translateX(10px);
         opacity: 0;
