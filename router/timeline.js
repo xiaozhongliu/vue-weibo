@@ -1540,8 +1540,9 @@ module.exports = router => {
                     emotions.push(emotion)
                 }
                 emotions.forEach(emotion => {
-                    let url = EMOTIONS.find(item => item.phrase == emotion).url;
-                    item.text = item.text.replace(emotion, `<img class=emotion src=${url}>`)
+                    let target = EMOTIONS.find(item => item.phrase == emotion);
+                    if (!target) return;
+                    item.text = item.text.replace(emotion, `<img class=emotion src=${target.url}>`)
                 })
             });
 
