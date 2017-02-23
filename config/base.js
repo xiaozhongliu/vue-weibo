@@ -1,6 +1,6 @@
 module.exports = {
 
-    NODE_ENV: 'dev',
+    NODE_ENV: 'prod',
 
     //redis hashset key
     REDIS_SET_KEY: 'user',
