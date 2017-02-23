@@ -28,7 +28,8 @@ app.use(session({
     secret: config.SECRET,
     store: new RedisStore({
         port: config.REDIS_PORT,
-        host: config.REDIS_HOST
+        host: config.REDIS_HOST,
+        pass: config.REDIS_PWD
     }),
     resave: true,
     saveUninitialized: true
