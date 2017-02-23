@@ -5,10 +5,11 @@ module.exports = (() => {
     return function () {
         if (!client) {
             let config = require('../config')();
-            client = require('redis').createClient(
-                config.REDIS_PORT,
-                config.REDIS_HOST
-            );
+            client = require('redis').createClient({
+                host: config.REDIS_HOST,
+                port: config.REDIS_PORT,
+                password: config.REDIS_PWD
+            });
         }
         return client;
     }

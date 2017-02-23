@@ -2,10 +2,6 @@ module.exports = {
 
     NODE_ENV: 'dev',
 
-    //redis
-    REDIS_HOST: '127.0.0.1',
-    REDIS_PORT: 6379,
-
     //redis hashset key
     REDIS_SET_KEY: 'user',
 

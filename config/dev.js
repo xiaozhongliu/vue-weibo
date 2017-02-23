@@ -10,6 +10,10 @@ module.exports = {
     // api port
     API_PORT: 3100,
 
+    //redis
+    REDIS_HOST: '127.0.0.1',
+    REDIS_PORT: 6379,
+
     MYSQL: {
         host: '',
         name: '',
