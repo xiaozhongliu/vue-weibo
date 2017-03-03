@@ -4,9 +4,10 @@ module.exports = (req, res, next) => {
 
     let clientHost = req.query.clientHost;
 
-    let originUrl = config.APP_PORT == 80 ?
-        `http://${clientHost}` :
-        `http://${clientHost}:${config.APP_PORT}`;
+    //app is behind nginx in prod, so port is 80
+    let originUrl = config.DEBUG ?
+        `http://${clientHost}:${config.APP_PORT}` :
+        `http://${clientHost}`;
 
     res.header('Access-Control-Allow-Origin', originUrl);
     res.header('Access-Control-Allow-Credentials', true);
