@@ -4,10 +4,11 @@ module.exports = {
 
     // app
     APP_DOMAIN: 'www.flashbeep.cn',
-    APP_PORT: 3000,
+    APP_PORT: 80,
 
     // api port
-    API_PORT: 3100,
+    API_DOMAIN: 'api.weibo.flashbeep.cn',
+    API_PORT: 80,
 
     //redis
     REDIS_HOST: '127.0.0.1',

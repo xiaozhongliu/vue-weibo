@@ -8,6 +8,7 @@ module.exports = {
     APP_PORT: 3000,
 
     // api port
+    API_DOMAIN: '192.168.1.6',
     API_PORT: 3100,
 
     //redis

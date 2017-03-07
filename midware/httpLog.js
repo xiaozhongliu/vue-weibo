@@ -1,7 +1,7 @@
 const {logger} = require('../util');
 const config = require('../config')();
 
-logger.info(`【 Service starts on http://${config.APP_DOMAIN}:${config.API_PORT} 】\n`);
+logger.info(`【 Service starts on http://${config.API_DOMAIN}:${config.API_PORT} 】\n`);
 
 module.exports = (req, res, next) => {
 
