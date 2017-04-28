@@ -15,6 +15,7 @@
     @import './asset/vars.scss';
 
     .app {
+        max-width: 500px;
         font-family: 'Avenir', Helvetica, Arial, sans-serif;
         font-size: 90%;
         color: #2c3e50

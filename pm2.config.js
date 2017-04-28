@@ -8,4 +8,4 @@ module.exports = {
         script: "./api.js",
         exec_mode: 'cluster'
     }]
-};
+}
